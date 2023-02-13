@@ -1,0 +1,12 @@
+.idea
+.vscode
+.git
+*.iml
+out
+gen
+dist
+*.d.ts
+node_modules
+public
+src/assets
+pnpm-lock.yaml
