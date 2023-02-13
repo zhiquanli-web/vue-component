@@ -13,6 +13,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vueuse/components": "^9.12.0",
+    "@vueuse/core": "^9.12.0",
     "axios": "^1.1.3",
     "dayjs": "^1.11.5",
     "normalize.css": "^8.0.1",
