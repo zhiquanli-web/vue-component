@@ -8,7 +8,3 @@ export default function registerProperties(app: App) {
     }
   };
 }
-
-export interface IFilters {
-  formatTime: (value: string, format?: string) => string;
-}
