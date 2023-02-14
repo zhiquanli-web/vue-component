@@ -1,7 +1,7 @@
 import { App } from 'vue';
-import SyDropDown from './src/dropdown.vue';
+import SyDropdown from './src/dropdown.vue';
 
-SyDropDown.install = (App: App) => {
-  App.component(SyDropDown.name, SyDropDown);
+SyDropdown.install = (App: App) => {
+  App.component(SyDropdown.name, SyDropdown);
 };
-export default SyDropDown;
+export default SyDropdown;

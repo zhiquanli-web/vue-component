@@ -1,6 +1,6 @@
 <template>
   <SyMoveList :list="list" v-model="active" showIcon :itemWidth="200" :rightBtnWidth="50">
-    <SyDropDown ref="dropDownRef" @click="handleClick">
+    <SyDropdown ref="dropDownRef" @click="handleClick">
       <span class="text">
         <i-sy-arrowDown width="13" height="13" />
       </span>
@@ -16,7 +16,7 @@
           </SyMenuItem>
         </SyMenu>
       </template>
-    </SyDropDown>
+    </SyDropdown>
   </SyMoveList>
 </template>
 
@@ -25,7 +25,7 @@
 // import SyMenu from '@packages/menu';
 // import SyMenuItem from '@packages/menuItem';
 // import SyMoveList from '@packages/moveList';
-import { SyDropDown, SyMenu, SyMenuItem, SyMoveList } from '@packages/index';
+// import { SyDropDown, SyMenu, SyMenuItem, SyMoveList } from '@packages/index';
 
 const active = ref<number | string>('');
 const dropDownRef = ref();
@@ -37,7 +37,7 @@ interface IList {
 const list = ref<IList[]>([]);
 for (let index = 0; index < 10; index++) {
   list.value.push({
-    label: `item-${index}所发生的发生的发生的发撒代发`,
+    label: `item-${index}`,
     value: `item_${index}`
   });
 }

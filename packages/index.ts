@@ -1,13 +1,13 @@
 import { App } from 'vue';
-import SyDropDown from './dropdown';
+import SyDropdown from './dropdown';
 import SyMenu from './menu';
 import SyMenuItem from './menuItem';
 import SyMoveList from './moveList';
 
 // 按需引入
-export { SyDropDown, SyMenu, SyMenuItem, SyMoveList };
+export { SyDropdown, SyMenu, SyMenuItem, SyMoveList };
 
-const components = [SyDropDown, SyMenu, SyMenuItem, SyMoveList];
+const components = [SyDropdown, SyMenu, SyMenuItem, SyMoveList];
 
 const install = (App: App) => {
   components.forEach((item: any) => {

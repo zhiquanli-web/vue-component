@@ -62,6 +62,7 @@ li {
 .sy-movelist-box {
   position: relative;
   background-color: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
   height: 36px;
   overflow: hidden;
   border-radius: 18px;
