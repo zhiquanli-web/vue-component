@@ -1,7 +1,7 @@
-import path from 'path';
+import path, { resolve } from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { viteMockServe } from 'vite-plugin-mock';
+import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 
 import Components from 'unplugin-vue-components/vite';
 import Icons from 'unplugin-icons/vite';
@@ -14,15 +14,11 @@ import Unocss from 'unocss/vite';
 import { presetAttributify, presetUno, presetIcons } from 'unocss';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+export default defineConfig(() => {
   return {
     plugins: [
       vue(),
-      viteMockServe({
-        mockPath: 'mock',
-        localEnabled: command === 'serve', // 开发环境启用
-        watchFiles: true
-      }),
+      vueSetupExtend(),
       AutoImport({
         dts: false,
         imports: ['vue', 'vue-router'],
@@ -42,7 +38,7 @@ export default defineConfig(({ command }) => {
       Icons({
         compiler: 'vue3',
         customCollections: {
-          sy: FileSystemIconLoader('src/assets/svgs', (svg) =>
+          sy: FileSystemIconLoader('examples/assets/svgs', (svg) =>
             svg.replace(/^<svg /, '<svg fill="currentColor" ')
           )
         }
@@ -52,9 +48,28 @@ export default defineConfig(({ command }) => {
         rules: [['cursor', { cursor: 'pointer' }]]
       })
     ],
+    build: {
+      outDir: 'lib',
+      lib: {
+        entry: resolve(__dirname, 'packages/index.ts'),
+        name: 'Vue3SyComponent',
+        fileName: 'vue3-sy-component'
+      },
+      rollupOptions: {
+        // 确保外部化处理那些你不想打包进库的依赖
+        external: ['vue'],
+        output: {
+          // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+          globals: {
+            vue: 'vue'
+          }
+        }
+      }
+    },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src')
+        '@': path.resolve(__dirname, 'examples'),
+        '@packages': path.resolve(__dirname, 'packages')
       }
     }
   };

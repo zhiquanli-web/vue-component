@@ -8,5 +8,5 @@ dist
 *.d.ts
 node_modules
 public
-src/assets
+examples/assets
 pnpm-lock.yaml

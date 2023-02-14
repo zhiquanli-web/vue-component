@@ -21,10 +21,11 @@
 </template>
 
 <script setup lang="ts">
-import SyDropDown from '@/packages/dropdown';
-import SyMenu from '@/packages/menu';
-import SyMenuItem from '@/packages/menuItem';
-import SyMoveList from '@/packages/moveList';
+// import DropDown from '@packages/dropdown';
+// import SyMenu from '@packages/menu';
+// import SyMenuItem from '@packages/menuItem';
+// import SyMoveList from '@packages/moveList';
+import { SyDropDown, SyMenu, SyMenuItem, SyMoveList } from '@packages/index';
 
 const active = ref<number | string>('');
 const dropDownRef = ref();
